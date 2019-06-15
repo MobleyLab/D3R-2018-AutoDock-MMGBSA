@@ -1,0 +1,80 @@
+#!/bin/bash
+#PBS -N XXX-YYY
+#PBS -q home
+#PBS -A mobley-ssasmal
+#PBS -o test.o
+#PBS -e test.o
+#PBS -l nodes=1:ppn=2:gpu
+#PBS -l walltime=6:00:00
+
+cd ${PBS_O_WORKDIR}
+
+export MODULEPATH=/projects/builder-group/jpg/modulefiles/applications:$MODULEPATH
+module load amber/18
+module load netcdf
+module load cuda/8.0.44
+
+oldStep="complex_wat"
+step="min_ntr_h"
+pmemd.cuda -O -i ../../scripts/mdin_YYY/${step}.in -c ${oldStep}.inpcrd -ref ${oldStep}.inpcrd \
+  -p complex_wat.prmtop -O -o mdout/${step}.out -inf PBS/${step}.info \
+  -r rst/${step}.rst -x netcdf/${step}.nc -l PBS/${step}.log
+
+oldStep="min_ntr_h"
+step="min_ntr_l"
+pmemd.cuda -O -i ../../scripts/mdin_YYY/${step}.in -c rst/${oldStep}.rst -ref rst/${oldStep}.rst \
+  -p complex_wat.prmtop -O -o mdout/${step}.out -inf PBS/${step}.info \
+  -r rst/${step}.rst -x netcdf/${step}.nc -l PBS/${step}.log
+
+oldStep="min_ntr_l"
+step="heat"
+pmemd.cuda -O -i ../../scripts/mdin_YYY/${step}.in -c rst/${oldStep}.rst -ref rst/${oldStep}.rst \
+  -p complex_wat.prmtop -O -o mdout/${step}.out -inf PBS/${step}.info \
+  -r rst/${step}.rst -x netcdf/${step}.nc -l PBS/${step}.log
+
+oldStep="heat"
+step="release_rest_5"
+pmemd.cuda -O -i ../../scripts/mdin_YYY/${step}.in -c rst/${oldStep}.rst -ref rst/${oldStep}.rst \
+  -p complex_wat.prmtop -O -o mdout/${step}.out -inf PBS/${step}.info \
+  -r rst/${step}.rst -x netcdf/${step}.nc -l PBS/${step}.log
+
+oldStep="release_rest_5"
+step="release_rest_2"
+pmemd.cuda -O -i ../../scripts/mdin_YYY/${step}.in -c rst/${oldStep}.rst -ref rst/${oldStep}.rst \
+  -p complex_wat.prmtop -O -o mdout/${step}.out -inf PBS/${step}.info \
+  -r rst/${step}.rst -x netcdf/${step}.nc -l PBS/${step}.log
+
+oldStep="release_rest_2"
+step="release_lig_2"
+pmemd.cuda -O -i ../../scripts/mdin_YYY/${step}.in -c rst/${oldStep}.rst -ref rst/${oldStep}.rst \
+  -p complex_wat.prmtop -O -o mdout/${step}.out -inf PBS/${step}.info \
+  -r rst/${step}.rst -x netcdf/${step}.nc -l PBS/${step}.log
+
+oldStep="release_lig_2"
+step="no_rest"
+pmemd.cuda -O -i ../../scripts/mdin_YYY/${step}.in -c rst/${oldStep}.rst \
+  -p complex_wat.prmtop -O -o mdout/${step}.out -inf PBS/${step}.info \
+  -r rst/${step}.rst -x netcdf/${step}.nc -l PBS/${step}.log
+
+oldStep="no_rest"
+step="equi_npt_1"
+pmemd.cuda -O -i ../../scripts/mdin_YYY/equi_npt.in -c rst/${oldStep}.rst \
+  -p complex_wat.prmtop -O -o mdout/${step}.out -inf PBS/${step}.info \
+  -r rst/${step}.rst -x netcdf/${step}.nc -l PBS/${step}.log
+
+oldStep="equi_npt_1"
+step="equi_npt_2"
+pmemd.cuda -O -i ../../scripts/mdin_YYY/equi_npt.in -c rst/${oldStep}.rst \
+  -p complex_wat.prmtop -O -o mdout/${step}.out -inf PBS/${step}.info \
+  -r rst/${step}.rst -x netcdf/${step}.nc -l PBS/${step}.log
+
+
+oldStep="equi_npt_2"
+step="prod_npt"
+pmemd.cuda -O -i ../../scripts/mdin_YYY/${step}.in -c rst/${oldStep}.rst \
+  -p complex_wat.prmtop -O -o mdout/${step}.out -inf PBS/${step}.info \
+  -r rst/${step}.rst -x netcdf/${step}.nc -l PBS/${step}.log
+
+
+##submit mmgbsa
+#qsub ../../scripts/mmgbsa.pbs

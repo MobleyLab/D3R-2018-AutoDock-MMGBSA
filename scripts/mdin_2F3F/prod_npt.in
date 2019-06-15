@@ -1,0 +1,10 @@
+13 ns production protein-ligand
+ &cntrl
+  imin=0,irest=1,ntx=5,
+  nstlim=6500000,dt=0.002,
+  ntc=2,ntf=2,
+  cut=8.0, ntb=2, ntp=1, taup=2.0,
+  ntpr=50000, ntwx=50000, ntwr=100000,
+  ntt=3, gamma_ln=2.0,
+  temp0=300.0, ig=-1,
+ /

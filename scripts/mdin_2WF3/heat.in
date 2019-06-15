@@ -1,0 +1,15 @@
+140 ps heat protein-ligand
+ &cntrl
+  imin=0,irest=0,
+  nstlim=70000,dt=0.002,
+  ntc=2,ntf=2,
+  cut=8.0, ntb=1,
+  ntpr=5000, ntwx=5000,
+  ntt=3, gamma_ln=2.0,
+  tempi=10.0, temp0=300.0, ig=-1,
+  ntr=1, restraintmask=':1-376',
+  restraint_wt=10.0,
+ /
+ &wt TYPE='TEMP0', istep1=5000, istep2=65000,
+  value1=10, value2=300.0, /
+ &wt TYPE='END' /

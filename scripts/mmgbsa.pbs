@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N mm-gbsa
+#PBS -q hotel
+#PBS -A mobley-ssasmal
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=24:00:00
+
+module load amber
+cd ${PBS_O_WORKDIR}
+
+source activate openmm-7.1
+python2 /opt/amber/16/bin/MMPBSA.py -O -i ../../scripts/mmgbsa.in -o FINAL_RESULTS_MMPBSA.dat -sp complex_wat.prmtop -cp complex_nowat.prmtop -rp protein_nowat.prmtop -lp lig_nowat.prmtop -y netcdf/prod_npt.nc > mm-gbsa.log
+

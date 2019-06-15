@@ -1,0 +1,19 @@
+Initial minimization w/ position restraints (10 kcal/molA) and PME (pmemd)
+ &cntrl
+  imin   = 1,
+
+  ntpr   = 1000,
+
+  ntb    = 1,
+  cut    = 9.0,
+
+  ntr    = 1,
+  ntc=2,ntf=2,
+
+  maxcyc = 1000,
+  ncyc   = 500,
+
+  restraintmask=':1-373',
+  restraint_wt=10.0
+ /
+
