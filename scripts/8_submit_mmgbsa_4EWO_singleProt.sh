@@ -1,4 +1,4 @@
-cd ligand/
+cd ligand_singleProt/
 for file in * 
 do
 

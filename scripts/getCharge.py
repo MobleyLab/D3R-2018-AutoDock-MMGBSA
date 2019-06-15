@@ -1,3 +1,5 @@
+# file used to find out what are the charges of each of the ligands
+
 from openeye.oechem import *
 import glob
 

@@ -1,0 +1,34 @@
+# load the AMBER force fields
+#source leaprc.protein.ff14SB
+source oldff/leaprc.ff99SB
+source leaprc.gaff
+source leaprc.water.tip3p
+#loadAmberParams frcmod.ionsjc_tip3p
+
+# load force field parameters for REF and TRA
+loadamberparams LIG.frcmod
+loadoff LIG.lib
+
+# load the coordinates and create the complex
+ligand = loadmol2 LIG.mol2
+protein = loadpdb ../../protein_oe/4EWO_oe_singleProt.pdb
+complex = combine {protein ligand}
+
+#The combination of the ff99SB force field with igb=8 gives the best results for protein; mbondi3 ; page 58 Amber14 manual
+set default PBRadii mbondi3
+
+saveamberparm ligand lig_nowat.prmtop lig_nowat.inpcrd
+saveamberparm protein protein_nowat.prmtop protein_nowat.inpcrd
+saveamberparm complex complex_nowat.prmtop complex_nowat.inpcrd
+savepdb complex complex_nowat.pdb
+
+# create complex in solution for vdw+bonded transformation
+solvatebox complex TIP3PBOX 10
+addions complex Cl- 0
+addions complex Na+ 0
+addIonsRand complex Na+ 25 Cl- 25 5
+savepdb complex complex_wat.pdb
+saveamberparm complex complex_wat.prmtop complex_wat.inpcrd
+
+quit
+
