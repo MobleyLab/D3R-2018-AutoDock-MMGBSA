@@ -1,0 +1,223 @@
+| Run on Tue May 28 16:16:28 2019
+|
+|Input file:
+|--------------------------------------------------------------
+|Input file for running PB and GB
+|&general
+|   startframe=31,
+|   endframe=130,
+|   entropy=1,
+|   netcdf=1,
+|/
+|&gb
+|  igb=8, saltcon=0.100
+|/
+|&pb
+|  istrng=0.100,
+|/
+|--------------------------------------------------------------
+|MMPBSA.py Version=14.0
+|Solvated complex topology file:  complex_wat.prmtop
+|Complex topology file:           complex_nowat.prmtop
+|Receptor topology file:          protein_nowat.prmtop
+|Ligand topology file:            lig_nowat.prmtop
+|Initial mdcrd(s):                netcdf/prod_npt.nc
+|
+|Receptor mask:                  ":1-377"
+|Ligand mask:                    ":378"
+|Ligand residue name is "LIG"
+|
+|Calculations performed using 100 complex frames.
+|Poisson Boltzmann calculations performed using internal PBSA solver in mmpbsa_py_energy
+|
+|Generalized Born ESURF calculated using 'LCPO' surface areas
+|
+|All units are reported in kcal/mole.
+|All entropy results have units kcal/mol (Temperature is 298.15 K).
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+ENTROPY RESULTS (QUASI-HARMONIC APPROXIMATION) CALCULATED WITH PTRAJ:
+           Translational      Rotational      Vibrational           Total
+Complex:         17.2110         17.9486         277.7488        312.9081
+Receptor:        17.1979         17.9451         277.4005        312.5435
+Ligand:          13.4498         11.7280          69.4937         94.6716
+
+DELTA S:        -13.4367        -11.7245         -69.1455        -94.3069
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+GENERALIZED BORN:
+
+WARNING: INCONSISTENCIES EXIST WITHIN INTERNAL POTENTIAL
+TERMS. THE VALIDITY OF THESE RESULTS ARE HIGHLY QUESTIONABLE
+Complex:
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+BOND                      1153.1709               28.8317              2.8832
+ANGLE                     3022.5534               45.0890              4.5089
+DIHED                     3955.7228               22.7653              2.2765
+VDWAALS                  -3042.3293               26.5258              2.6526
+EEL                     -25159.0405               90.0555              9.0055
+1-4 VDW                   1373.7077               15.6958              1.5696
+1-4 EEL                  15361.2047               55.4528              5.5453
+EGB                      -5049.5029               63.3152              6.3315
+ESURF                      119.3237                1.7715              0.1771
+
+G gas                    -3335.0103               87.4432              8.7443
+G solv                   -4930.1792               63.0555              6.3056
+
+TOTAL                    -8265.1895               65.8655              6.5865
+
+
+Receptor:
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+BOND                      1136.9091               28.5850              2.8585
+ANGLE                     2978.1424               44.9574              4.4957
+DIHED                     3924.7673               22.6931              2.2693
+VDWAALS                  -2956.8998               25.3440              2.5344
+EEL                     -25243.8701               87.9974              8.7997
+1-4 VDW                   1348.4787               15.7412              1.5741
+1-4 EEL                  15366.5956               55.4091              5.5409
+EGB                      -4874.2437               62.7741              6.2774
+ESURF                      123.2417                1.7267              0.1727
+
+G gas                    -3445.8768               86.4576              8.6458
+G solv                   -4751.0021               62.4855              6.2485
+
+TOTAL                    -8196.8789               65.9232              6.5923
+
+
+Ligand:
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+BOND                        16.2618                3.2222              0.3222
+ANGLE                       44.4110                5.1301              0.5130
+DIHED                       30.9566                3.7440              0.3744
+VDWAALS                    -11.5852                1.6201              0.1620
+EEL                        -47.3255                4.3967              0.4397
+1-4 VDW                     25.2290                1.5949              0.1595
+1-4 EEL                     -5.3909                2.8439              0.2844
+EGB                        -63.7727                2.3827              0.2383
+ESURF                        5.6161                0.0746              0.0075
+
+G gas                       52.5567                7.1051              0.7105
+G solv                     -58.1565                2.3466              0.2347
+
+TOTAL                       -5.5998                7.0664              0.7066
+
+
+Differences (Complex - Receptor - Ligand):
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+BOND                        -0.0000                0.0000              0.0000
+ANGLE                       -0.0000                0.0001              0.0000
+DIHED                       -0.0011                0.0080              0.0008
+VDWAALS                    -73.8442                5.2246              0.5225
+EEL                        132.1551               10.6190              1.0619
+1-4 VDW                      0.0000                0.0000              0.0000
+1-4 EEL                     -0.0000                0.0000              0.0000
+EGB                       -111.4865                8.9088              0.8909
+ESURF                       -9.5341                0.4647              0.0465
+
+DELTA G gas                 58.3098               12.5227              1.2523
+DELTA G solv              -121.0206                8.7206              0.8721
+
+DELTA TOTAL                -62.7108                5.9419              0.5942
+
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Using Quasi-harmonic Entropy Approximation: DELTA G binding =   31.5961
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+POISSON BOLTZMANN:
+
+WARNING: INCONSISTENCIES EXIST WITHIN INTERNAL POTENTIAL
+TERMS. THE VALIDITY OF THESE RESULTS ARE HIGHLY QUESTIONABLE
+Complex:
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+BOND                      1153.1709               28.8317              2.8832
+ANGLE                     3022.5534               45.0890              4.5089
+DIHED                     3955.7228               22.7653              2.2765
+VDWAALS                  -3042.3293               26.5258              2.6526
+EEL                     -25159.0405               90.0555              9.0055
+1-4 VDW                   1373.7077               15.6958              1.5696
+1-4 EEL                  15361.2047               55.4528              5.5453
+EPB                      -4297.9000               63.2779              6.3278
+ENPOLAR                   2903.4358                9.0200              0.9020
+EDISPER                  -1543.0360               11.2505              1.1251
+
+G gas                    -3335.0103               87.4432              8.7443
+G solv                   -2937.5002               63.2025              6.3202
+
+TOTAL                    -6272.5105               71.1115              7.1112
+
+
+Receptor:
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+BOND                      1136.9091               28.5850              2.8585
+ANGLE                     2978.1424               44.9574              4.4957
+DIHED                     3924.7673               22.6931              2.2693
+VDWAALS                  -2956.8998               25.3440              2.5344
+EEL                     -25243.8701               87.9974              8.7997
+1-4 VDW                   1348.4787               15.7412              1.5741
+1-4 EEL                  15366.5956               55.4091              5.5409
+EPB                      -4132.6271               63.2966              6.3297
+ENPOLAR                   2886.9616                8.8322              0.8832
+EDISPER                  -1571.4460               10.7663              1.0766
+
+G gas                    -3445.8768               86.4576              8.6458
+G solv                   -2817.1115               63.0216              6.3022
+
+TOTAL                    -6262.9883               69.4018              6.9402
+
+
+Ligand:
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+BOND                        16.2618                3.2222              0.3222
+ANGLE                       44.4110                5.1301              0.5130
+DIHED                       30.9566                3.7440              0.3744
+VDWAALS                    -11.5852                1.6201              0.1620
+EEL                        -47.3255                4.3967              0.4397
+1-4 VDW                     25.2290                1.5949              0.1595
+1-4 EEL                     -5.3909                2.8439              0.2844
+EPB                        -68.6350                2.5907              0.2591
+ENPOLAR                     70.3880                0.5446              0.0545
+EDISPER                    -64.5692                0.6468              0.0647
+
+G gas                       52.5567                7.1051              0.7105
+G solv                     -62.8162                2.6033              0.2603
+
+TOTAL                      -10.2595                7.0827              0.7083
+
+
+Differences (Complex - Receptor - Ligand):
+Energy Component            Average              Std. Dev.   Std. Err. of Mean
+-------------------------------------------------------------------------------
+BOND                        -0.0000                0.0000              0.0000
+ANGLE                       -0.0000                0.0001              0.0000
+DIHED                       -0.0011                0.0080              0.0008
+VDWAALS                    -73.8442                5.2246              0.5225
+EEL                        132.1551               10.6190              1.0619
+1-4 VDW                      0.0000                0.0000              0.0000
+1-4 EEL                     -0.0000                0.0000              0.0000
+EPB                        -96.6380                8.6830              0.8683
+ENPOLAR                    -53.9138                2.5213              0.2521
+EDISPER                     92.9793                2.1171              0.2117
+
+DELTA G gas                 58.3098               12.5227              1.2523
+DELTA G solv               -57.5725                8.9205              0.8921
+
+DELTA TOTAL                  0.7373                9.4629              0.9463
+
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Using Quasi-harmonic Entropy Approximation: DELTA G binding =   95.0442
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------

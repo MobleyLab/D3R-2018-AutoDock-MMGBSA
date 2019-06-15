@@ -1,4 +1,4 @@
-cd ligand_singleProt/
+cd ligand_4EWO_singleProt/ 
 while read line 
 do
 

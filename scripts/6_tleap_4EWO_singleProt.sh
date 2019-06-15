@@ -1,5 +1,4 @@
-mkdir ligand_singleProt/
-cd ligand_singleProt/
+cd ligand_4EWO_singleProt/
 while read line
 do
    splitted=($line)
@@ -9,7 +8,6 @@ do
    if [ $protein == "4EWO" ]
    then
       echo $file $protein
-      mkdir $file
       cd $file
       cp -r ../../ligand/${file}/LIG.* ./ 
       cp ../../scripts/leap_4EWO_singleProt.in leap.in 
