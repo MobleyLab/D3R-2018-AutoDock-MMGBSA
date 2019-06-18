@@ -1,5 +1,8 @@
+#Usage: bash fetch_score.sh foldername
+#Example: bash fetch_score.sh ligand_2wf3_redo
+
 rm mmgbsa_score.txt
-cd ligand/
+cd $1
 for folder in *
 do
    
